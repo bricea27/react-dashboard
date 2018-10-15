@@ -1,0 +1,20 @@
+.inspire-me {
+  cursor: pointer;
+  width: 15%;
+  min-width: 160px;
+  font-size: calc(16px + 0.5vw);
+  text-transform: uppercase;
+  font-weight: 800;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  transition: all ease 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+    transition: all ease 0.2s;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
