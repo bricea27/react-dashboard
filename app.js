@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/weather/:city', function(req, res, next) {
   let city = req.params.city;
-  request(`https://api.openweathermap.org/data/2.5/weather?appid=a61f7c9d7b64711edd523a4c41b70fa1&q=${city}&units=Imperial`, function (error, response, body) {
+  request(`https://api.openweathermap.org/data/2.5/weather?appid=${weatherKey}&q=${city}&units=Imperial`, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       data = JSON.parse(body);
       res.json(data);
