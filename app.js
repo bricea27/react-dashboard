@@ -27,9 +27,11 @@ app.get('/weather/:city', function(req, res, next) {
   });
 });
 
-app.get('/quote/:name', function(req, res, next) {
-  let name = req.params.name;
-  request(`https://api.icndb.com/jokes/random?limitTo=[nerdy]&firstName=${name}&lastName=`, function (error, response, body) {
+app.get('/quote/:firstName&:lastName?', function(req, res, next) {
+  let firstName = (req.params.firstName) ? req.params.firstName : "";
+  let lastName = (req.params.lastName) ? req.params.lastName : "";
+  console.log(firstName, lastName);
+  request(`https://api.icndb.com/jokes/random?limitTo=[nerdy]&firstName=${firstName}&lastName=${lastName}&escape=javascript`, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       data = JSON.parse(body);
       res.json(data);

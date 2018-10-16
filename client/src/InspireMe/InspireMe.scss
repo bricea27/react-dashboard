@@ -7,10 +7,14 @@
   font-weight: 800;
   border-radius: 6px;
   padding: 0.5rem 1rem;
+  -webkit-transition: all ease 0.2s;
+  -moz-transition: all ease 0.2s;
   transition: all ease 0.2s;
 
   &:hover {
     opacity: 0.8;
+    -webkit-transition: all ease 0.2s;
+    -moz-transition: all ease 0.2s;
     transition: all ease 0.2s;
   }
 

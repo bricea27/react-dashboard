@@ -1,10 +1,60 @@
 .App {
   width: 100%;
   height: 100%;
-  background: #282c34;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  background: #222;
   font-family: "Poppins";
+  position: relative;
+
+  &.show-dashboard {
+    section.form {
+      transform: translateX(100%);
+    }
+    section.dashboard {
+      transform: translateX(0);
+    }
+  }
+
+  section {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2rem;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    -webkit-transition: all ease 0.2s;
+    -moz-transition: all ease 0.2s;
+    transition: all ease 0.2s;
+
+    &.dashboard {
+      background: none;
+      justify-content: space-evenly;
+      transform: translateX(100%);
+    }
+
+  }
+}
+
+#toggleForm {
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: calc(16px + 1vw);
+  z-index: 999;
+  -webkit-transition: all ease 0.2s;
+  -moz-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+    -webkit-transition: all ease 0.2s;
+    -moz-transition: all ease 0.2s;
+    transition: all ease 0.2s;
+  }
 }
