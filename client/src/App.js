@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Form from './Form/Form';
 import Quote from './Quote/Quote';
 import InspireMe from './InspireMe/InspireMe';
+import WeatherIcon from 'react-icons-weather';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCog, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -16,6 +17,11 @@ class App extends Component {
     this.state = {
       firstName: "Chuck",
       lastName: "Norris",
+      location: {
+        latitude: 39.7706458,
+        longitude: -86.1556021
+      },
+      weather: null,
       userConfigured: false,
       showDashboard: false,
       currentQuote: {
@@ -25,7 +31,16 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // this.fetchQuote();
+    this.getWeather();
+  }
+
+  getWeather = () => {
+    fetch(`/weather/${this.state.location.latitude}&${this.state.location.longitude}`)
+      .then(res => res.json())
+      .then(weather => {
+        console.log(weather);
+        this.setState({ weather: weather });
+      });
   }
 
   //Retrieve a quote from the Internet Chuck Norris Database
@@ -81,6 +96,13 @@ class App extends Component {
           <Form onSubmit={this.userFormSubmit} onChange={this.updateName} firstName={this.state.firstName} lastName={this.state.lastName} />
         </section>
         <section className="dashboard">
+          {this.state.weather !== null &&
+            <div className="weather">
+              <WeatherIcon name="darksky" iconId="clear-day" />
+              <h2>{this.state.weather.currently.summary}</h2>
+              <h3>{Math.round(this.state.weather.currently.temperature)}˚</h3>
+            </div>
+          }
           <Quote quote={this.state.currentQuote}/>
           <InspireMe onClick={this.fetchQuote} />
         </section>

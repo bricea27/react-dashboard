@@ -5,6 +5,7 @@ var request = require('request');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var port = process.env.PORT || 5000;
+var googleKey = process.env.GOOG_KEY;
 var weatherKey = process.env.WEATHER_KEY;
 
 var app = express();
@@ -17,9 +18,10 @@ app.use(cookieParser());
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/weather/:city', function(req, res, next) {
-  let city = req.params.city;
-  request(`https://api.openweathermap.org/data/2.5/weather?appid=${weatherKey}&q=${city}&units=Imperial`, function (error, response, body) {
+app.get('/weather/:lat&:lon', function(req, res, next) {
+  let latitude = (req.params.lat) ? req.params.lat : "";
+  let longitude = (req.params.lon) ? req.params.lon : "";
+  request(`https://api.darksky.net/forecast/${weatherKey}/${latitude},${longitude}`, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       data = JSON.parse(body);
       res.json(data);
