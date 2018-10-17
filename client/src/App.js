@@ -19,6 +19,7 @@ class App extends Component {
       latitude: "",
       longitude: "",
       weather: "",
+      weatherColor: "",
       userConfigured: false,
       showDashboard: false,
       currentQuote: {
@@ -32,18 +33,36 @@ class App extends Component {
   }
 
   getWeather = () => {
-
     if (this.state.latitude === ""|| this.state.longitude === "") {
       this.setState({ weather: "" });
       return;
     }
-
     fetch(`/weather/${this.state.latitude}&${this.state.longitude}`)
       .then(res => res.json())
       .then(weather => {
-        console.log(weather);
         this.setState({ weather: weather });
+        this.calculateWeatherColor(this.state.weather.currently);
       });
+  }
+
+  //determine an HSL color valyue based on the temperature and cloud cover
+  calculateWeatherColor = (data) => {
+    //we'll use the temperature value to determine our hue
+    let temp = Math.round(data.temperature);
+    //highest temp on our scale is 90 (anything over will be calculated as 90)
+    temp = temp > 90 ? 90 : temp;
+
+    //calculate our hue...
+    //coldest value is 180, warmest is 0 (on our hue scale)
+    let hue = 180 - (180 * (temp / 90));
+
+    //we'll use the cloudCover value to determine our saturation
+    let cloudCover = data.cloudCover * 100;
+    let saturation = 100 + cloudCover;
+    saturation = saturation < 20 ? 20 : saturation; //lowest saturation allowed is 20%
+    saturation = saturation > 80 ? 80 : saturation; //highest saturation allowed is 80%
+
+    this.setState({ weatherColor: `hsl(${hue}, ${saturation}%, 50%)` });
   }
 
   //Retrieve a quote from the Internet Chuck Norris Database
@@ -123,7 +142,7 @@ class App extends Component {
           />
         </section>
 
-        <section className="dashboard">
+        <section className="dashboard" style={{background: this.state.weatherColor}}>
           {this.state.weather !== null &&
             <Weather locationLabel={this.state.locationLabel} weather={this.state.weather} />
           }
