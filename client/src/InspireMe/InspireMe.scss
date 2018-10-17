@@ -6,8 +6,8 @@
   font-weight: 800;
   border: none;
   border-radius: 6px;
-  background: white;
-  color: #666;
+  background: rgba(0,0,0,0.1);
+  color: rgba(0,0,0,0.5);
   padding: 0.5rem 1rem;
   outline: none;
   -webkit-transition: all ease 0.2s;
@@ -15,7 +15,7 @@
   transition: all ease 0.2s;
 
   &:hover {
-    background: #ededed;
+    background: rgba(0,0,0,0.2);
     -webkit-transition: all ease 0.2s;
     -moz-transition: all ease 0.2s;
     transition: all ease 0.2s;
@@ -26,9 +26,9 @@
   }
 
   &:active {
-    background-color: #ededed;
-    box-shadow: 0 2px rgba(0,0,0,0.25);
-    transform: translateY(2px);
+    background: rgba(0,0,0,0.2);
+    // box-shadow: 0 2px rgba(0,0,0,0.2);
+    transform: translateY(1px);
     -webkit-transition: all ease 0.2s;
     -moz-transition: all ease 0.2s;
     transition: all ease 0.2s;

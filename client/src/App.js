@@ -51,10 +51,14 @@ class App extends Component {
     let temp = Math.round(data.temperature);
     //highest temp on our scale is 90 (anything over will be calculated as 90)
     temp = temp > 90 ? 90 : temp;
+    //lowest temp on our scale is 0 (anything under will be calculated as 0)
+    temp = temp < 0 ? 0 : temp;
 
     //calculate our hue...
     //coldest value is 180, warmest is 0 (on our hue scale)
     let hue = 180 - (180 * (temp / 90));
+
+    console.log(temp, hue);
 
     //we'll use the cloudCover value to determine our saturation
     let cloudCover = data.cloudCover * 100;
