@@ -21,23 +21,25 @@
     left: 0;
     padding: 2rem;
     background: #ededed;
-    // background: linear-gradient(270deg, #0F2027, #203A43, #2C5364);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    overflow: auto;
     -webkit-transition: all ease 0.2s;
     -moz-transition: all ease 0.2s;
     transition: all ease 0.2s;
 
     &.dashboard {
-      background: linear-gradient(270deg, #d4e6e2, #79d0f9, #92EAD6);
+      background: linear-gradient(270deg, #d4e6e2, #79d0f9, #92EAD6); //cool sky
+      background: linear-gradient(270deg, #EDE574, #E1F5C4);
+      background: linear-gradient(270deg, #acb6e5, #86fde8);
+      // background: linear-gradient(270deg, #b92b27, #1565C0); //evening sunshine
+      // background: linear-gradient(270deg, #bdc3c7, #2c3e50); //grade grey
       background-size: 400% 400%;
       -webkit-animation: backgroundAnimate 7s ease infinite;
       -moz-animation: backgroundAnimate 7s ease infinite;
       -o-animation: backgroundAnimate 7s ease infinite;
       animation: backgroundAnimate 7s ease infinite;
-      justify-content: space-between;
       transform: translateX(100%);
     }
 
@@ -63,4 +65,13 @@
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
+}
+
+@media screen and (min-width: 480px) {
+  section.settings {
+    justify-content: center;
+  }
+  section.dashboard {
+    justify-content: space-between;
+  }
 }

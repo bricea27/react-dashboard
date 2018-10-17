@@ -10,8 +10,6 @@ class SettingsToggle extends Component {
 
   render() {
 
-    let iconClass = (this.props.showDashboardState) ? "user-cog" : "times";
-
     return (
       <FontAwesomeIcon
         id="settingsToggle"

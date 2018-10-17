@@ -4,14 +4,15 @@
 
   h1, h2 {
     color: #333;
+    font-size: calc(16px + 2vw);
     margin: 0.5rem 0;
   }
 
   h2 {
     width: 80%;
+    font-size: calc(16px + 0.5vw);
     font-weight: 300;
     line-height: 1.25;
-    // color: rgba(255,255,255,0.5);
     color: #999;
     margin: 0 auto;
   }

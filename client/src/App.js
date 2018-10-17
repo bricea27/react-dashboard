@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SimpleStorage from 'react-simple-storage';
 import SettingsToggle from './SettingsToggle/SettingsToggle';
 import Welcome from './Welcome/Welcome';
 import Form from './Form/Form';
@@ -14,10 +15,10 @@ class App extends Component {
     this.state = {
       firstName: "",
       lastName: "",
-      locationLabel: "Indianapolis",
-      latitude: 39.7706458,
-      longitude: -86.1556021,
-      weather: null,
+      locationLabel: "",
+      latitude: "",
+      longitude: "",
+      weather: "",
       userConfigured: false,
       showDashboard: false,
       currentQuote: {
@@ -31,9 +32,16 @@ class App extends Component {
   }
 
   getWeather = () => {
+
+    if (this.state.latitude === ""|| this.state.longitude === "") {
+      this.setState({ weather: "" });
+      return;
+    }
+
     fetch(`/weather/${this.state.latitude}&${this.state.longitude}`)
       .then(res => res.json())
       .then(weather => {
+        console.log(weather);
         this.setState({ weather: weather });
       });
   }
@@ -62,11 +70,20 @@ class App extends Component {
   }
 
   updateLocation = (e) => {
-    if (e) {
-      this.setState({ locationLabel: e.label });
-      this.setState({ latitude: e.location.lat });
-      this.setState({ longitude: e.location.lng });
+
+    if (!e) {
+      this.setState({ locationLabel: ""});
+      this.setState({ latitude: "" });
+      this.setState({ longitude: "" });
+      return;
     }
+
+    let latitude = (e.location && e.location.lat) ? e.location.lat : "";
+    let longitude = (e.location && e.location.lng) ? e.location.lng : "";
+
+    this.setState({ locationLabel: e.label });
+    this.setState({ latitude: latitude });
+    this.setState({ longitude: longitude });
   }
 
   showDashboard = () => {
@@ -81,6 +98,8 @@ class App extends Component {
 
     return (
       <div className={(this.state.showDashboard) ? "App show-dashboard" : "App"}>
+
+        <SimpleStorage parent={this} />
 
         {this.state.userConfigured &&
           <SettingsToggle
@@ -98,6 +117,7 @@ class App extends Component {
             onLocationChange={this.updateLocation}
             firstName={this.state.firstName}
             lastName={this.state.lastName}
+            locationLabel={this.state.locationLabel}
             userConfigured={this.state.userConfigured}
             hideDashboard={this.hideDashboard}
           />
