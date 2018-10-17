@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Geosuggest from 'react-geosuggest';
 import './Form.scss';
 
 class Form extends Component {
@@ -7,11 +8,15 @@ class Form extends Component {
       <form onSubmit={this.props.onSubmit}>
         <label>
           First Name *
-          <input type="text" name="firstName" value={this.props.firstName} onChange={this.props.onChange} required />
+          <input type="text" name="firstName" placeholder="Chuck" value={this.props.firstName} onChange={this.props.onChange} required />
         </label>
         <label>
           Last Name
-          <input type="text" name="lastName" value={this.props.lastName} onChange={this.props.onChange} />
+          <input type="text" name="lastName" placeholder="Norris" value={this.props.lastName} onChange={this.props.onChange} />
+        </label>
+        <label>
+          Location *
+          <Geosuggest name="location" placeholder={"Search"} onSuggestSelect={this.props.onLocationChange} autoActivateFirstSuggest={false} />
         </label>
         <input type="submit" value="Save" />
       </form>

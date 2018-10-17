@@ -1,21 +1,3 @@
-.welcome {
-  text-align: center;
-  color: white;
-  margin-bottom: 2rem;
-
-  h1, h2 {
-    margin: 0.5rem 0;
-  }
-
-  h2 {
-    width: 80%;
-    font-weight: 300;
-    line-height: 1.25;
-    color: rgba(255,255,255,0.5);
-    margin: 0 auto;
-  }
-}
-
 form {
   width: 80%;
   max-width: 480px;
@@ -31,40 +13,96 @@ label {
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
+  color: #666;
   margin: 1rem 0;
+}
+
+::placeholder {
+  color: rgba(0,0,0,0.2);
 }
 
 input {
   padding: 0.5rem;
   border-radius: 3px;
   border: none;
-  box-shadow: none;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
   margin: 0.5rem 0;
-  background: rgba(255,255,255,0.1);
-  color: white;
+  background: none;
+  color: #333;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 input[type=submit] {
   cursor: pointer;
   text-transform: uppercase;
   font-weight: 800;
-  background: white;
-  color: #111;
+  color: rgba(0,0,0,0.2);
+  padding: 0.5rem 1.5rem;
+  margin: 0 auto 0 0;
   -webkit-transition: all ease 0.2s;
   -moz-transition: all ease 0.2s;
   transition: all ease 0.2s;
 
   &:hover {
-    opacity: 0.8;
+    background: rgba(0,0,0,0.1);
     -webkit-transition: all ease 0.2s;
     -moz-transition: all ease 0.2s;
     transition: all ease 0.2s;
   }
+}
 
-  &:focus {
-    -webkit-transition: all ease 0.2s;
-    -moz-transition: all ease 0.2s;
-    transition: all ease 0.2s;
+.geosuggest {
+
+  .geosuggest__input {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .geosuggest__suggests {
+    border: 2px solid rgba(0,0,0,0.1);
+    border-top: none;
+    border-radius: 3px;
+    font-weight: 300;
+    text-transform: none;
+    list-style: none;
+    padding: 0.5rem;
+    margin-top: 0.125rem;
+
+    &.geosuggest__suggests--hidden {
+      max-height: 0;
+      overflow: hidden;
+      border-width: 0;
+      padding: 0;
+    }
+
+    .geosuggest__item {
+      cursor: pointer;
+      padding: 0.25rem;
+      -webkit-transition: all ease 0.2s;
+      -moz-transition: all ease 0.2s;
+      transition: all ease 0.2s;
+    }
+
+    .geosuggest__item:hover, .geosuggest__item:focus {
+      background: rgba(0,0,0,0.05);
+      -webkit-transition: all ease 0.2s;
+      -moz-transition: all ease 0.2s;
+      transition: all ease 0.2s;
+    }
+
+    .geosuggest__item--active, .geosuggest__item--active:hover {
+      background: rgba(0,0,0,0.2);
+      -webkit-transition: all ease 0.2s;
+      -moz-transition: all ease 0.2s;
+      transition: all ease 0.2s;
+    }
+
+    .geosuggest__item__matched-text {
+      color: rgba(0,0,0,1);
+      font-weight: 500;
+    }
   }
 }
