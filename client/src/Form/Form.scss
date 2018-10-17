@@ -4,7 +4,9 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding: 1rem;
+  padding: 1rem 2rem;
+  background: rgba(0,0,0,0.05);
+  border-radius: 3px;
 }
 
 label {
@@ -25,10 +27,10 @@ input {
   padding: 0.5rem;
   border-radius: 3px;
   border: none;
-  box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
-  margin: 0.5rem 0;
-  background: none;
+  background: white;
+  box-shadow: none;
   color: #333;
+  margin: 0.5rem 0;
 
   &:focus {
     outline: none;
@@ -39,22 +41,48 @@ input[type=submit] {
   cursor: pointer;
   text-transform: uppercase;
   font-weight: 800;
-  color: rgba(0,0,0,0.2);
+  box-shadow: none;
+  background: rgba(0,0,0,0.1);
+  color: rgba(0,0,0,0.5);
   padding: 0.5rem 1.5rem;
-  margin: 0 auto 0 0;
+  margin: 1rem 0;
   -webkit-transition: all ease 0.2s;
   -moz-transition: all ease 0.2s;
   transition: all ease 0.2s;
 
   &:hover {
-    background: rgba(0,0,0,0.1);
+    background: rgba(0,0,0,0.2);
     -webkit-transition: all ease 0.2s;
     -moz-transition: all ease 0.2s;
     transition: all ease 0.2s;
   }
 }
 
+.cancel {
+  cursor: pointer;
+  border: none;
+  box-shadow: none;
+  background: none;
+  color: rgba(0,0,0,0.5);
+  margin-left: 1rem;
+  -webkit-transition: all ease 0.2s;
+  -moz-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+
+  &:hover {
+    color: rgba(0,0,0,0.75);
+    -webkit-transition: all ease 0.2s;
+    -moz-transition: all ease 0.2s;
+    transition: all ease 0.2s;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
 .geosuggest {
+  position: relative;
 
   .geosuggest__input {
     width: 100%;
@@ -62,14 +90,18 @@ input[type=submit] {
   }
 
   .geosuggest__suggests {
-    border: 2px solid rgba(0,0,0,0.1);
-    border-top: none;
+    background: white;
+    border: 1px solid #ededed;
     border-radius: 3px;
     font-weight: 300;
     text-transform: none;
     list-style: none;
     padding: 0.5rem;
-    margin-top: 0.125rem;
+    margin-top: -1px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
 
     &.geosuggest__suggests--hidden {
       max-height: 0;
@@ -94,7 +126,7 @@ input[type=submit] {
     }
 
     .geosuggest__item--active, .geosuggest__item--active:hover {
-      background: rgba(0,0,0,0.2);
+      background: rgba(0,0,0,0.1);
       -webkit-transition: all ease 0.2s;
       -moz-transition: all ease 0.2s;
       transition: all ease 0.2s;

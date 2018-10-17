@@ -83,12 +83,24 @@ class App extends Component {
       <div className={(this.state.showDashboard) ? "App show-dashboard" : "App"}>
 
         {this.state.userConfigured &&
-          <SettingsToggle showDashboardState={this.state.showDashboard} showDashboard={this.showDashboard} hideDashboard={this.hideDashboard} />
+          <SettingsToggle
+            showDashboardState={this.state.showDashboard}
+            showDashboard={this.showDashboard}
+            hideDashboard={this.hideDashboard}
+          />
         }
 
         <section className="settings">
           <Welcome />
-          <Form onSubmit={this.userFormSubmit} onChange={this.updateName} onLocationChange={this.updateLocation} firstName={this.state.firstName} lastName={this.state.lastName} />
+          <Form
+            onSubmit={this.userFormSubmit}
+            onChange={this.updateName}
+            onLocationChange={this.updateLocation}
+            firstName={this.state.firstName}
+            lastName={this.state.lastName}
+            userConfigured={this.state.userConfigured}
+            hideDashboard={this.hideDashboard}
+          />
         </section>
 
         <section className="dashboard">

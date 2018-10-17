@@ -1,9 +1,15 @@
 .quote {
-  width: 90%;
   font-size: calc(16px + 3vw);
   font-weight: 600;
   line-height: 1.25;
   text-align: center;
   color: white;
   margin: 0 0 2rem 0;
+}
+
+
+@media screen and (min-width: 480px) {
+  .quote {
+    width: 90%;
+  }
 }

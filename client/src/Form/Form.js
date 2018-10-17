@@ -3,6 +3,7 @@ import Geosuggest from 'react-geosuggest';
 import './Form.scss';
 
 class Form extends Component {
+
   render() {
     return(
       <form onSubmit={this.props.onSubmit}>
@@ -18,7 +19,9 @@ class Form extends Component {
           Location *
           <Geosuggest name="location" placeholder={"Search"} onSuggestSelect={this.props.onLocationChange} autoActivateFirstSuggest={false} />
         </label>
-        <input type="submit" value="Save" />
+        <div className="form-footer">
+          <input type="submit" value="Save" />
+        </div>
       </form>
     )
   }

@@ -10,14 +10,14 @@ class SettingsToggle extends Component {
 
   render() {
 
+    let iconClass = (this.props.showDashboardState) ? "user-cog" : "times";
+
     return (
-      <span id="settingsToggle">
-        {
-          (this.props.showDashboardState)
-          ? <FontAwesomeIcon icon="user-cog" onClick={this.props.hideDashboard} />
-          : <FontAwesomeIcon icon="times" onClick={this.props.showDashboard} />
-        }
-      </span>
+      <FontAwesomeIcon
+        id="settingsToggle"
+        icon={(this.props.showDashboardState) ? "user-cog" : "times"}
+        onClick={(this.props.showDashboardState) ? this.props.hideDashboard : this.props.showDashboard}
+      />
     );
   }
 }
