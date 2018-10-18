@@ -35,6 +35,10 @@
 
     &.dashboard {
       transform: translateY(100%);
+
+      &.no-weather {
+        justify-content: center;
+      }
     }
 
   }
