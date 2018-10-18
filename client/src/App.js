@@ -179,7 +179,7 @@ class App extends Component {
         </section>
 
         <section
-          className={(this.state.weather !== null) ? "dashboard" : "dashboard no-weather"}
+          className={(this.state.weather !== null && this.state.weather !== "") ? "dashboard" : "dashboard no-weather"}
           style={{ background: `linear-gradient(180deg, ${this.state.highTempColor}, ${this.state.lowTempColor})`}}>
 
           {this.state.weather.daily &&
