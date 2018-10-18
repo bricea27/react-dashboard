@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // this.getWeather();
+
   }
 
   getWeather = () => {
@@ -91,6 +91,14 @@ class App extends Component {
       });
   }
 
+  //this will be fired once our state has been hydrated with local storage data
+  loadDashboard = () => {
+    if (this.state.userConfigured) {
+      this.getWeather();
+      this.fetchQuote();
+    }
+  }
+
   userFormSubmit = (e) => {
     this.getWeather();
     this.fetchQuote();
@@ -133,7 +141,7 @@ class App extends Component {
     return (
       <div className={(this.state.showDashboard) ? "App show-dashboard" : "App"}>
 
-        <SimpleStorage parent={this} />
+        <SimpleStorage parent={this} onParentStateHydrated={this.loadDashboard} />
 
         {this.state.userConfigured &&
           <SettingsToggle
