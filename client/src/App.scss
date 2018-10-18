@@ -27,6 +27,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     overflow: auto;
     -webkit-transition: all ease 0.2s;
     -moz-transition: all ease 0.2s;
@@ -39,71 +40,6 @@
   }
 }
 
-// .App.cloudy-cold, .App.cloudy-mild, .App.cloudy-warm {
-//   section.dashboard {
-//     background: linear-gradient(270deg, #8e9eab, #eef2f3); //UI Gradient: Portrait
-//     background-size: 400% 400%;
-//     -webkit-animation: backgroundAnimate 7s ease infinite;
-//     -moz-animation: backgroundAnimate 7s ease infinite;
-//     -o-animation: backgroundAnimate 7s ease infinite;
-//     animation: backgroundAnimate 7s ease infinite;
-//   }
-// }
-//
-// .App.clear-cold {
-//   section.dashboard {
-//     background: linear-gradient(270deg, #2980B9, #6DD5FA, #ffffff);
-//     background-size: 400% 400%;
-//     -webkit-animation: backgroundAnimate 7s ease infinite;
-//     -moz-animation: backgroundAnimate 7s ease infinite;
-//     -o-animation: backgroundAnimate 7s ease infinite;
-//     animation: backgroundAnimate 7s ease infinite;
-//   }
-// }
-//
-// .App.clear-mild {
-//   section.dashboard {
-//     background: linear-gradient(270deg, #DAD299, #B0DAB9); //UI Gradient: Autumn
-//     background: linear-gradient(270deg, #43C6AC, #F8FFAE); //UI Gradient: Honey Dew
-//     background-size: 400% 400%;
-//     -webkit-animation: backgroundAnimate 7s ease infinite;
-//     -moz-animation: backgroundAnimate 7s ease infinite;
-//     -o-animation: backgroundAnimate 7s ease infinite;
-//     animation: backgroundAnimate 7s ease infinite;
-//   }
-// }
-//
-// .App.clear-warm {
-//   section.dashboard {
-//     background: linear-gradient(270deg, #e65c00, #F9D423); //UI Gradient: Blooker20
-//     background-size: 400% 400%;
-//     -webkit-animation: backgroundAnimate 7s ease infinite;
-//     -moz-animation: backgroundAnimate 7s ease infinite;
-//     -o-animation: backgroundAnimate 7s ease infinite;
-//     animation: backgroundAnimate 7s ease infinite;
-//   }
-// }
-
-@-webkit-keyframes backgroundAnimate {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-@-moz-keyframes backgroundAnimate {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-@-o-keyframes backgroundAnimate {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-@keyframes backgroundAnimate {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
 
 @media screen and (min-width: 480px) {
   section.settings {

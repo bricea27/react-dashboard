@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('/weather/:lat&:lon', function(req, res, next) {
   let latitude = (req.params.lat) ? req.params.lat : "";
   let longitude = (req.params.lon) ? req.params.lon : "";
-  request(`https://api.darksky.net/forecast/${weatherKey}/${latitude},${longitude}`, function (error, response, body) {
+  request(`https://api.darksky.net/forecast/${weatherKey}/${latitude},${longitude},${Math.round(Date.now() / 1000)}`, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       data = JSON.parse(body);
       res.json(data);

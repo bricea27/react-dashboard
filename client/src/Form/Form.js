@@ -9,7 +9,7 @@ class Form extends Component {
       <form onSubmit={this.props.onSubmit}>
         <label>
           First Name *
-          <input type="text" name="firstName" placeholder="Chuck" value={this.props.firstName} onChange={this.props.onChange} required tabIndex="1" />
+          <input type="text" name="firstName" placeholder="Chuck" value={this.props.firstName} onChange={this.props.onChange} tabIndex="1" />
         </label>
         <label>
           Last Name

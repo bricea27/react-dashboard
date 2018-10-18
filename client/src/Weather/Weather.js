@@ -20,9 +20,9 @@ class Weather extends Component {
     } else {
       return(
         <div className="weather">
-          <WeatherIcon name="darksky" iconId={this.props.weather.currently.icon} />
+          <WeatherIcon name="darksky" iconId={this.props.weather.daily.data[0].icon} />
           <h2>{this.props.locationLabel}</h2>
-          <h3>{this.props.weather.currently.summary}, <span>{Math.round(this.props.weather.currently.temperature)}˚</span></h3>
+          <h3>{this.props.weather.currently.summary}, <span>Feels like {Math.floor(this.props.weather.currently.apparentTemperature)}˚</span></h3>
         </div>
       )
     }

@@ -1,0 +1,15 @@
+.temperature {
+  flex: 1;
+  display: flex;
+
+  &.low {
+    align-items: flex-end;
+  }
+
+  h5 {
+    color: rgba(0,0,0,0.25);
+    font-size: calc(16px + 0.5vw);
+    text-transform: capitalize;
+    margin: 0;
+  }
+}
