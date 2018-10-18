@@ -29,17 +29,18 @@ class App extends Component {
   }
 
   componentDidMount() {
-
+    // this.getWeather();
   }
 
   getWeather = () => {
-    if (this.state.latitude === ""|| this.state.longitude === "") {
+    if (this.state.latitude === "" || this.state.longitude === "") {
       this.setState({ weather: "" });
       return;
     }
     fetch(`/weather/${this.state.latitude}&${this.state.longitude}`)
       .then(res => res.json())
       .then(weather => {
+        console.log(weather);
         this.setState({ weather: weather });
         this.calculateWeatherColor(this.state.weather.currently);
       });
@@ -49,22 +50,18 @@ class App extends Component {
   calculateWeatherColor = (data) => {
     //we'll use the temperature value to determine our hue
     let temp = Math.round(data.temperature);
-    //highest temp on our scale is 90 (anything over will be calculated as 90)
-    temp = temp > 90 ? 90 : temp;
+    //highest temp on our scale is 100 (anything over will be calculated as 100)
+    temp = temp > 100 ? 100 : temp;
     //lowest temp on our scale is 0 (anything under will be calculated as 0)
     temp = temp < 0 ? 0 : temp;
 
     //calculate our hue...
-    //coldest value is 180, warmest is 0 (on our hue scale)
-    let hue = 180 - (180 * (temp / 90));
-
-    console.log(temp, hue);
-
+    //coldest value is 240, warmest is 0 (on our hue scale)
+    let hue = Math.round(240 - (240 * (temp / 100)));
     //we'll use the cloudCover value to determine our saturation
-    let cloudCover = data.cloudCover * 100;
-    let saturation = 100 + cloudCover;
-    saturation = saturation < 20 ? 20 : saturation; //lowest saturation allowed is 20%
-    saturation = saturation > 80 ? 80 : saturation; //highest saturation allowed is 80%
+    let cloudCover = data.cloudCover;
+    //our mininum saturation will be 50 (max is 100%)
+    let saturation = 50 + (50 - (50 * cloudCover));
 
     this.setState({ weatherColor: `hsl(${hue}, ${saturation}%, 50%)` });
   }
@@ -133,7 +130,7 @@ class App extends Component {
         }
 
         <section className="settings">
-          <Welcome />
+          <Welcome userConfigured={this.state.userConfigured} />
           <Form
             onSubmit={this.userFormSubmit}
             onChange={this.updateName}
