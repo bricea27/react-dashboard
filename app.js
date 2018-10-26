@@ -32,7 +32,7 @@ app.get('/weather/:lat&:lon', function(req, res, next) {
 app.get('/quote/:firstName&:lastName?', function(req, res, next) {
   let firstName = (req.params.firstName) ? req.params.firstName : "";
   let lastName = (req.params.lastName) ? req.params.lastName : "";
-  request(`https://api.icndb.com/jokes/random?exclude=[explicit]&firstName=${firstName}&lastName=${lastName}&escape=javascript`, function (error, response, body) {
+  request(`https://api.icndb.com/jokes/random?limitTo=[nerdy]&firstName=${firstName}&lastName=${lastName}&escape=javascript`, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       data = JSON.parse(body);
       res.json(data);
