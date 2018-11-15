@@ -1,0 +1,66 @@
+.made-by {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  padding: 0.5rem;
+  z-index: 999;
+  color: rgba(0,0,0,0.5);
+  color: white;
+  text-decoration: none;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  -webkit-transition: all ease 0.2s;
+  -moz-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+
+  &:hover {
+    padding: 1rem;
+    background: rgba(0,0,0,0.5);
+    -webkit-transition: all ease 0.2s;
+    -moz-transition: all ease 0.2s;
+    transition: all ease 0.2s;
+
+    &:after {
+      content: "Made By Andrew Brice";
+      margin-left: 0.75rem;
+      opacity: 1;
+      -webkit-transition: all ease 0.2s;
+      -moz-transition: all ease 0.2s;
+      transition: all ease 0.2s;
+    }
+
+    .logo {
+      fill: white;
+      -webkit-transition: all ease 0.2s;
+      -moz-transition: all ease 0.2s;
+      transition: all ease 0.2s;
+    }
+  }
+
+  &:after {
+    content: "Made By Andrew Brice";
+    margin-left: 0.5rem;
+    opacity: 0;
+    -webkit-transition: all ease 0.2s;
+    -moz-transition: all ease 0.2s;
+    transition: all ease 0.2s;
+  }
+
+
+  .logo {
+    width: 30px;
+    fill: rgba(0,0,0,0.25);
+    -webkit-transition: all ease 0.2s;
+    -moz-transition: all ease 0.2s;
+    transition: all ease 0.2s;
+  }
+
+}
+
+
+@media screen and (min-width: 480px) {
+  .made-by .logo {
+    width: 40px;
+  }
+}

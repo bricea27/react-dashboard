@@ -5,7 +5,6 @@ var request = require('request');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var port = process.env.PORT || 5000;
-var googleKey = process.env.GOOG_KEY;
 var weatherKey = process.env.WEATHER_KEY;
 
 var app = express();

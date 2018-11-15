@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SimpleStorage from 'react-simple-storage';
+import MadeBy from './MadeBy/MadeBy';
 import SettingsToggle from './SettingsToggle/SettingsToggle';
 import Welcome from './Welcome/Welcome';
 import Temperature from './Temperature/Temperature';
@@ -155,6 +156,8 @@ class App extends Component {
       <div className={(this.state.showDashboard) ? "App show-dashboard" : "App"}>
 
         <SimpleStorage parent={this} onParentStateHydrated={this.loadDashboard} />
+
+        <MadeBy />
 
         {this.state.userConfigured &&
           <SettingsToggle
