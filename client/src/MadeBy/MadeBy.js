@@ -7,7 +7,7 @@ class MadeBy extends Component {
   render() {
 
     return(
-      <a className='made-by' href='https://www.thebriceisright.com' target='_blank'><Logo /></a>
+      <a className='made-by' href='https://www.thebriceisright.com' rel="noopener noreferrer" target='_blank'><Logo /></a>
     )
   }
 }
