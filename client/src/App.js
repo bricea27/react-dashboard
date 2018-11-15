@@ -157,8 +157,6 @@ class App extends Component {
 
         <SimpleStorage parent={this} onParentStateHydrated={this.loadDashboard} />
 
-        <MadeBy />
-
         {this.state.userConfigured &&
           <SettingsToggle
             showDashboardState={this.state.showDashboard}
@@ -200,6 +198,8 @@ class App extends Component {
           }
 
         </section>
+
+        <MadeBy />
 
       </div>
     );
