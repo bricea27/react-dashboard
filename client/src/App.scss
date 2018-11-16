@@ -9,7 +9,7 @@
 
   &.show-dashboard {
     section.settings {
-      transform: translateY(100%);
+      transform: translateY(-100%);
     }
     section.dashboard {
       transform: translateY(0);
@@ -18,11 +18,11 @@
 
   section {
     width: 100%;
-    height: calc(100% - 60px);
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    padding: 2rem;
+    padding: 1.5rem 1.5rem 66px 1.5rem;
     background: #ededed;
     display: flex;
     flex-direction: column;
@@ -33,7 +33,7 @@
     transition: all ease 0.2s;
 
     &.dashboard {
-      transform: translateY(100%);
+      transform: translateY(-100%);
 
       &.no-weather {
         justify-content: center;
@@ -45,15 +45,10 @@
 
 
 @media screen and (min-width: 480px) {
-  .App {
-    section {
-      height: calc(100% - 70px);
-    }
-    section.settings {
-      justify-content: center;
-    }
-    section.dashboard {
-      justify-content: space-between;
-    }
+  section.settings {
+    justify-content: center;
+  }
+  section.dashboard {
+    justify-content: space-between;
   }
 }
