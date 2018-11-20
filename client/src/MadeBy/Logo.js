@@ -14,7 +14,7 @@ function Logo({props}) {
         <rect x="78.5" y="104.7" className="st0" width="39.3" height="13.1"/>
       </g>
     </svg>
-  )
+  );
 }
 
 export default Logo;
