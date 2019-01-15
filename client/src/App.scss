@@ -28,9 +28,9 @@
     flex-direction: column;
     align-items: center;
     overflow: auto;
-    -webkit-transition: all ease 0.2s;
-    -moz-transition: all ease 0.2s;
-    transition: all ease 0.2s;
+    -webkit-transition: all ease 0.4s;
+    -moz-transition: all ease 0.4s;
+    transition: all ease 0.4s;
 
     &.dashboard {
       transform: translateY(-100%);
