@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "npm install && node app.js",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm update && npm run build"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -13,7 +13,7 @@
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
-    "react-simple-storage": "^1.4.0",
+    "react-simple-storage": "^1.4.1",
     "request": "^2.88.0"
   },
   "engines": {
